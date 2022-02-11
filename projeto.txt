@@ -1,0 +1,67 @@
+Crian O MODEL MIGRATION CONTROLLER
+php artisan make:model post -mcr
+
+
+
+
+1. Migration
+
+php artisan make:migration create_flights_table
+
+ public function up()
+    {
+        Schema::create('produtos', function (Blueprint $table) {
+            $table->id();
+            $table->string('tipo_produto', 50); //cm, mm, kg
+            $table->string('descricao', 150);
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('produtos');
+    }
+
+
+2. Model
+
+php artisan make:model product - m
+
+
+  protected $fillable = ['tipo_produto', 'descricao'];
+
+
+3. CRUD
+
+php artisan make:controller ProdutosController
+
+
+4. Package Install
+
+5. Job
+
+config/queen.php
+env; trocar ascy por database
+
+php artisan queue:table
+php artisan migrate:fresh
+php artisan queue:work
+
+Criando Job
+
+php artisan make:job NomeDoJob
+
+php artisan make:job NomeDoJob
+
+
+6. HTTP
+
+
+
+7. Livewire (testes bônus)
